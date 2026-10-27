@@ -45,6 +45,7 @@ the two agree. All runs are seeded, so these numbers are the same on any machine
 | Attention | [`kv_cache.py`](attention/kv_cache.py) | incremental decode equals full recompute over the prefix | max error 4.4e-16 |
 | | [`flash_attention_numpy.py`](attention/flash_attention_numpy.py) | tiled online-softmax attention equals full `softmax(QKᵀ/√d)V`, under two different tilings | max error 3.3e-16 |
 | | [`gqa.py`](attention/gqa.py) | GQA with one group per head is MHA; GQA with a single group is MQA | exact |
+| | [`sliding_window.py`](attention/sliding_window.py) | window-W attention with a W-entry KV cache equals full attention with a band mask | max error 2.2e-16 |
 | Serving | [`paged_attention.py`](serving/paged_attention.py) | attention over a paged KV block table equals attention over contiguous KV | exact (12 blocks of 16 tokens) |
 | | [`continuous_batching.py`](serving/continuous_batching.py) | iteration-level batching beats static batching on the same 8 requests | 1.90× throughput (30 vs 57 steps) |
 | | [`prefix_cache.py`](serving/prefix_cache.py) | reusing a cached prefix KV equals recomputing the whole sequence | max error 8.3e-17 |
