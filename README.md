@@ -9,14 +9,14 @@ The LLM inference stack, written out in NumPy so the mechanics are visible and e
 no GPU, no framework, just the algorithms.
 
 <p align="center">
-  <img src="docs/media/demo.gif" alt="python3 check_all.py runs all 28 self-checks; every one passes" width="860">
+  <img src="docs/media/demo.gif" alt="python3 check_all.py runs all 29 self-checks; every one passes" width="860">
 </p>
 
 ## Quick start
 
 ```sh
 pip install -r requirements.txt   # numpy is the only dependency
-python3 check_all.py              # runs all 28 self-checks, about 4 s on a laptop CPU
+python3 check_all.py              # runs all 29 self-checks, about 4 s on a laptop CPU
 python3 engine.py                 # a tiny transformer: prefill, KV-cached decode, sampling
 ```
 
@@ -37,7 +37,8 @@ check_all.py   runs every script and fails if any check fails (this is what CI r
 ## What each check proves
 
 The point is the invariants. Every script compares an optimized path against a plain reference and asserts
-the two agree. All runs are seeded, so these numbers are the same on any machine.
+the two agree. All runs are seeded, and the numbers below are what CI prints on Linux. Rounding-level errors can differ
+on other machines: on macOS, `sliding_window.py` prints `max_err=0.00e+00`.
 
 | Area | Script | Invariant | Result |
 |---|---|---|---|
