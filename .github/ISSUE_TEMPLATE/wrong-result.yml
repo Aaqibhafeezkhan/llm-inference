@@ -1,0 +1,25 @@
+name: Report a wrong result
+description: A check fails, or prints a number that does not match the README
+body:
+  - type: input
+    id: script
+    attributes:
+      label: Script
+      placeholder: attention/kv_cache.py
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Command and output
+      description: The command you ran and everything it printed.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Python and NumPy versions
+      placeholder: Python 3.12.4, NumPy 2.1.0
+    validations:
+      required: true
