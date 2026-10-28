@@ -80,6 +80,7 @@ each checked against a NumPy reference.
 
 New checks are welcome. Each one is a single seeded script that asserts an invariant against a reference.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the conventions and a list of open ideas.
+Issues and pull requests have short templates, and everyone here follows the [code of conduct](CODE_OF_CONDUCT.md).
 
 ## License
 

@@ -40,9 +40,12 @@ CI runs the same command on Python 3.10, 3.12 and 3.13. A pull request is ready 
 - FP8 (E4M3/E5M2) simulation for weights and the KV cache, with error bounds
 - A tensor-parallel matmul split across simulated devices, checked against the single-device result
 
-Open an issue first if you want to discuss an idea before writing it.
+Open an issue first, with the **Propose a check** form, if you want to discuss an idea before writing it.
 
 ## Pull requests
 
 - One topic per pull request, with a short description of the invariant it checks.
+- The pull request template asks for the PASS line and the last line of `check_all.py`.
+- Everyone here follows the [code of conduct](CODE_OF_CONDUCT.md). Report a security problem by email, as
+  [SECURITY.md](SECURITY.md) says, not in a public issue.
 - By contributing you agree that your work is released under the [MIT License](LICENSE).

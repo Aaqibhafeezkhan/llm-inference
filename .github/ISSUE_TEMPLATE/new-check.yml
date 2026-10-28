@@ -1,0 +1,33 @@
+name: Propose a check
+description: A new script that proves one inference idea against a plain reference
+title: "Add "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Each check is one seeded NumPy script that asserts an invariant and prints a `PASS` line. CONTRIBUTING.md has the steps.
+  - type: textarea
+    id: invariant
+    attributes:
+      label: What the check proves
+      description: One sentence, for example "sliding-window attention with a W-entry KV cache equals full attention with a band mask". Name the paper or doc the idea comes from.
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Reference to compare against
+      description: The plain version the new code must match (full recompute, contiguous memory, brute force or the textbook formula), and the tolerance you expect.
+    validations:
+      required: true
+  - type: dropdown
+    id: folder
+    attributes:
+      label: Folder
+      options:
+        - attention
+        - quantization
+        - serving
+        - sampling
+    validations:
+      required: true
