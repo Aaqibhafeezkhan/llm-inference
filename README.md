@@ -37,8 +37,9 @@ check_all.py   runs every script and fails if any check fails (this is what CI r
 ## What each check proves
 
 The point is the invariants. Every script compares an optimized path against a plain reference and asserts
-the two agree. All runs are seeded, and the numbers below are what CI prints on Linux. Rounding-level errors can differ
-on other machines: on macOS, `sliding_window.py` prints `max_err=0.00e+00`.
+the two agree. All runs are seeded. Errors near 1e-16 are floating-point rounding, and their last digits change
+with the NumPy build and the machine (in CI, `engine.py` prints `max_err=1.11e-16` on Python 3.12 and `1.67e-16`
+on 3.10 and 3.13), so read them as "equal up to rounding".
 
 | Area | Script | Invariant | Result |
 |---|---|---|---|
