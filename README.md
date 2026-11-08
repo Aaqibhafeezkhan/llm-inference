@@ -48,7 +48,7 @@ on other machines: on macOS, `sliding_window.py` prints `max_err=0.00e+00`.
 | | [`gqa.py`](attention/gqa.py) | GQA with one group per head is MHA; GQA with a single group is MQA | exact |
 | | [`sliding_window.py`](attention/sliding_window.py) | window-W attention with a W-entry KV cache equals full attention with a band mask | max error 2.2e-16 |
 | Serving | [`paged_attention.py`](serving/paged_attention.py) | attention over a paged KV block table equals attention over contiguous KV | exact (12 blocks of 16 tokens) |
-| | [`chunked_prefill.py`](serving/chunked_prefill.py) | chunked prefill preserves KV and next-token logits while allowing decode between chunks | max error 5.6e-17; wait falls from 16 to at most 8 token slots |
+| | [`chunked_prefill.py`](serving/chunked_prefill.py) | chunked prefill preserves KV and next-token logits while allowing decode between chunks | max error 5.6e-17; measured max wait 8 vs 16 token slots unchunked |
 | | [`continuous_batching.py`](serving/continuous_batching.py) | iteration-level batching beats static batching on the same 8 requests | 1.90× throughput (30 vs 57 steps) |
 | | [`prefix_cache.py`](serving/prefix_cache.py) | reusing a cached prefix KV equals recomputing the whole sequence | max error 8.3e-17 |
 | | [`speculative_decoding.py`](serving/speculative_decoding.py) | accept/reject keeps the target distribution, and the acceptance rate equals Σ min(p, q) | distribution error 2.5e-3 over 150k trials; 3.0 tokens per round |
